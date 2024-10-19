@@ -18,8 +18,10 @@ const app = express();
 
 // Set EJS as the view engine
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "views/admin"));
-app.set("views", path.join(__dirname, "views"));
+
+// Set the views directory to the dist folder after build
+app.set("views", path.join(__dirname, "dist/admin"));
+app.set("views", path.join(__dirname, "dist"));
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
