@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Job Applications</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Job Applications</h1>
+
+    <table class="table table-bordered table-hover">
+      <thead class="table-dark">
+        <tr>
+          <th>Post Title</th>
+          <th>User Email</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% applications.forEach(application => { %>
+        <tr>
+          <td><%= application.post ? application.post.title : "N/A" %></td>
+          <td><%= application.user ? application.user.email : "N/A" %></td>
+          <td><%= application.startDate ? application.startDate.toDateString() : "N/A" %></td>
+          <td><%= application.endDate ? application.endDate.toDateString() : "N/A" %></td>
+          <td><%= application.status %></td>
+          <td>
+            <form action="/admin/application/<%= application._id %>/status" method="post" class="d-inline">
+              <select name="status" class="form-select" onchange="this.form.submit()">
+                <option value="Pending" <%= application.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                <option value="Accepted" <%= application.status === 'Accepted' ? 'selected' : '' %>>Accepted</option>
+                <option value="Rejected" <%= application.status === 'Rejected' ? 'selected' : '' %>>Rejected</option>
+              </select>
+            </form>
+            <form action="/admin/application/<%= application._id %>/delete" method="post" class="d-inline">
+              <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+            </form>
+          </td>
+        </tr>
+        <% }) %>
+      </tbody>
+    </table>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!-- views/partials/admin-sidebar.ejs -->
+<div
+  class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark"
+  style="width: 280px; min-height: 100vh"
+>
+  <a
+    href="/admin"
+    class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none"
+  >
+    <span class="fs-4">Admin Panel</span>
+  </a>
+  <hr />
+  <ul class="nav nav-pills flex-column mb-auto">
+    <li class="nav-item">
+      <a
+        href="/admin/add-post"
+        class="nav-link text-white <%= path === '/admin/add-post' ? 'active' : '' %>"
+      >
+        <i class="fas fa-plus-circle me-2"></i>
+        Add Post
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/my-posts"
+        class="nav-link text-white <%= path === '/admin/my-posts' ? 'active' : '' %>"
+      >
+        <i class="fas fa-list me-2"></i>
+        My Posts
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/users"
+        class="nav-link text-white <%= path === '/admin/users' ? 'active' : '' %>"
+      >
+        <i class="fas fa-users me-2"></i>
+        Registered Users
+      </a>
+    </li>
+    <li>
+      <a
+        href="/admin/applications"
+        class="nav-link text-white <%= path === '/admin/applications' ? 'active' : '' %>"
+      >
+        <i class="fas fa-file-alt me-2"></i>
+        Applications
+      </a>
+    </li>
+  </ul>
+  <hr />
+  <div class="dropdown">
+    <a
+      href="#"
+      class="d-flex align-items-center text-white text-decoration-none dropdown-toggle"
+      id="dropdownUser1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      <img
+        src="https://github.com/mdo.png"
+        alt=""
+        width="32"
+        height="32"
+        class="rounded-circle me-2"
+      />
+      <strong>Admin</strong>
+    </a>
+    <ul
+      class="dropdown-menu dropdown-menu-dark text-small shadow"
+      aria-labelledby="dropdownUser1"
+    >
+      <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+    </ul>
+  </div>
+</div>

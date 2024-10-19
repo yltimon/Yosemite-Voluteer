@@ -1,0 +1,32 @@
+<div class="container-fluid px-0">
+  <div class="jumbotron jumbotron-fluid bg-primary text-white text-center py-5">
+    <div class="container">
+      <h1 class="display-4">Welcome to Your Volunteering Website</h1>
+      <p class="lead">
+        Discover meaningful volunteer opportunities in your community.
+      </p>
+    </div>
+  </div>
+
+  <div class="container mt-5">
+    <div class="row">
+      <% posts.forEach(function(post) { %>
+      <div class="col-md-4 mb-4">
+        <div class="card h-100">
+          <img
+            src="/image/<%= post.image %>"
+            class="card-img-top"
+            alt="Opportunity Image"
+            style="height: 200px; object-fit: cover"
+          />
+          <div class="card-body">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text"><%= post.description %></p>
+            <a href="/posts/<%= post._id %>" class="btn btn-primary">APPLY</a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
